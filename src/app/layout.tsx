@@ -4,6 +4,7 @@ import { cookies } from "next/headers";
 import Script from "next/script";
 import { cn } from "~/lib/utils";
 import "./globals.css";
+import { Providers } from "./providers";
 
 const fontSans = Inter({
   subsets: ["latin"],
@@ -30,7 +31,7 @@ export default function RootLayout({
           fontHeading.variable
         )}
       >
-        {children}
+        <Providers>{children}</Providers>
       </body>
       {process.env.NODE_ENV === "production" && (
         <Script

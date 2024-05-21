@@ -1,88 +1,70 @@
-import { LanguagesIcon } from "lucide-react";
-import { BrandIcons } from "../shared/brand-icons";
 import { Card } from "../ui/card";
 
 export default function Features() {
   return (
     <section>
-      <div className="container space-y-6 rounded-md bg-secondary py-14 lg:py-24 ">
+      <div className=" space-y-6 rounded-md bg-secondary py-14 lg:py-24">
         <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
-          <h2 className="font-heading text-4xl md:text-6xl">Features</h2>
+          <h2 className="font-heading text-4xl md:text-6xl">
+            Features to Power Your Channel
+          </h2>
           <p className="max-w-[85%] text-balance leading-normal text-primary/70 sm:text-lg sm:leading-7">
-            This template comes with features like Authentication, API routes,
-            File uploading and more in Next.js App dir.
+            Your Assistant For Youtube Scripts, Thumbnails, Analytics and
+            Everything in Between!
           </p>
         </div>
-        <div className="mx-auto grid justify-center gap-4 text-center sm:grid-cols-2 md:max-w-[64rem] md:grid-cols-3">
-          <Card className="flex h-[160px] flex-col justify-between rounded-md p-6">
-            <BrandIcons.nextjs />
+        <div className="mx-auto grid gap-4 text-center md:max-w-[64rem] md:grid-cols-2 lg:grid-cols-2">
+          <div className="md:col-span-2">
+            <Card className="flex h-[400px] flex-col justify-between rounded-md p-6">
+              <video controls className="h-[240px] w-full rounded-md">
+                <source src="/path/to/demo-video1.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <h3 className="mt-4 text-xl font-bold">AI Thumbnail Generator</h3>
+              <p className="text-balance text-sm text-muted-foreground">
+                Stand out in the sea of videos with thumbnails that pop. Enter
+                your video idea or image prompt, and utilize our face swap
+                feature to save time on posing and photoshoots.
+              </p>
+            </Card>
+          </div>
+          <Card className="flex h-[300px] flex-col justify-between rounded-md p-6">
+            <video controls className="h-[160px] w-full rounded-md">
+              <source src="/path/to/demo-video2.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            <h3 className="mt-4 text-xl font-bold">Script Maker</h3>
             <p className="text-balance text-sm text-muted-foreground">
-              App dir, Routing, Layouts, API routes, Server Components, Server
-              actions.
+              Overcome writer's block with scripts that resonate. Just give us a
+              topic, and we'll draft a script that echoes your voice and any
+              language.
             </p>
           </Card>
-          <Card className="flex h-[160px] flex-col justify-between rounded-md p-6">
-            <BrandIcons.shadcnUI />
-
+          <Card className="flex h-[300px] flex-col justify-between rounded-md p-6">
+            <video controls className="h-[160px] w-full rounded-md">
+              <source src="/path/to/demo-video3.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            <h3 className="mt-4 text-xl font-bold">MetaData Assistant</h3>
             <p className="text-balance text-sm text-muted-foreground">
-              UI components built using Radix UI and styled with Tailwind CSS.
+              Auto-generate your titles, descriptions, and tags - all SEO
+              optimized.
             </p>
           </Card>
-          <Card className="flex h-[160px] flex-col justify-between rounded-md p-6">
-            <BrandIcons.prisma />
-
-            <p className="text-balance text-sm text-muted-foreground">
-              Using Postgres with Prisma ORM, hosted on Vercel Postgres.
-            </p>
-          </Card>
-          <Card className="flex h-[160px] flex-col justify-between rounded-md p-6">
-            <BrandIcons.luciaAuth />
-
-            <p className="text-balance text-sm text-muted-foreground">
-              Authentication and Authorization using LuciaAuth v3.
-            </p>
-          </Card>
-          <Card className="flex h-[160px] flex-col justify-between rounded-md p-6">
-            <BrandIcons.uploadthing />
-
-            <p className="text-balance text-sm text-muted-foreground">
-              Upload and preview files effortlessly with UploadThing.
-            </p>
-          </Card>
-          <Card className="flex h-[160px] flex-col justify-between p-6">
-            <BrandIcons.resend />
-
-            <p className="text-balance text-sm text-muted-foreground">
-              Create emails using React Email and Send with Resend.
-            </p>
-          </Card>
-          <Card className="flex h-[160px] flex-col justify-between p-6">
-            <LanguagesIcon className="mx-auto h-12 w-12 fill-current" />
-
-            <p className="text-balance text-sm text-muted-foreground">
-              Internationalization support with type-safe Next-International.
-            </p>
-          </Card>
-          <Card className="flex h-[160px] flex-col justify-between p-6">
-            <BrandIcons.stripe />
-
-            <p className="text-balance text-sm text-muted-foreground">
-              Receive and process payments with Stripe.
-            </p>
-          </Card>
-          <Card className="flex h-[160px] flex-col justify-between p-6">
-            <BrandIcons.vercel />
-
-            <p className="text-balance text-sm text-muted-foreground">
-              Production and Preview deployments with Vercel.
-            </p>
-          </Card>
-        </div>
-        <div className="mx-auto text-center md:max-w-[58rem]">
-          <p className="font-medium leading-normal text-primary/70 sm:text-lg sm:leading-7">
-            ChadNext also includes changelog page built using Contentlayer and
-            Markdown.
-          </p>
+          <div className="md:col-span-2">
+            <Card className="flex h-[400px] flex-col justify-between rounded-md p-6">
+              <video controls className="h-[240px] w-full rounded-md">
+                <source src="/path/to/demo-video4.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <h3 className="mt-4 text-xl font-bold">AnalyticsChat</h3>
+              <p className="text-balance text-sm text-muted-foreground">
+                Your stats have stories to tell. Our chat interface makes data
+                easy to digest, so you can focus on creating, not crunching
+                numbers.
+              </p>
+            </Card>
+          </div>
         </div>
       </div>
     </section>

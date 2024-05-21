@@ -11,8 +11,8 @@ export default function Footer() {
       <div className="container flex items-center justify-between gap-4 md:h-14 md:flex-row">
         <div className="flex flex-col items-center gap-4 md:flex-row md:gap-2">
           <Image
-            src="/chad-next.png"
-            alt="ChadNext logo"
+            src="/ease_ai_300x300_logo.png"
+            alt="Ease AI logo"
             width="24"
             height="24"
             className="hidden h-6 w-6 rounded-sm object-contain md:inline-block"
@@ -25,7 +25,7 @@ export default function Footer() {
               rel="noreferrer"
               className="font-medium underline underline-offset-4"
             >
-              Moinul Moin
+              Chirag Sharma
             </Link>
           </p>
         </div>

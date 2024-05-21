@@ -3,7 +3,7 @@ import Hero from "~/components/sections/hero";
 import OpenSource from "~/components/sections/open-source";
 import Pricing from "~/components/sections/pricing";
 
-export default async function Home() {
+export default function Home() {
   return (
     <>
       <Hero />

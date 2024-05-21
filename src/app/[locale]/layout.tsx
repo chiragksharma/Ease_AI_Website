@@ -66,9 +66,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       creator: "@immoinulmoin",
     },
     icons: {
-      icon: "/favicon.ico",
-      shortcut: "/favicon-16x16.png",
-      apple: "/apple-touch-icon.png",
+      icon: "/ease_ai_logo.ico",
+      shortcut: "/ease_ai_16x16.png",
+      apple: "/ease_ai_300x300_logo.png",
     },
     manifest: `${siteUrl}/manifest.json`,
     metadataBase: new URL(site.url),
