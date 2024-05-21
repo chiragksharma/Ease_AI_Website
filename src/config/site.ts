@@ -1,14 +1,15 @@
 export const siteUrl =
-  process.env.NEXT_PUBLIC_APP_URL || "https://chadnext.moinulmoin.com";
+  process.env.NEXT_PUBLIC_APP_URL || "https://www.easeai.site";
 
 export const siteConfig = (locale?: string) => ({
-  name: "ChadNext",
+  name: "Ease AI",
   url: siteUrl + "/" + locale,
   ogImage: `${siteUrl}/${locale}/opengraph-image`,
-  description: "Quick Starter Template for your Next project.",
+  description:
+    "All-in-one tool for YouTube, providing a range of tools to enhance your YouTube experience.",
   links: {
-    twitter: "https://twitter.com/immoinulmoin",
-    github: "https://github.com/moinulmoin/chadnext",
+    twitter: "https://x.com/AiEase73281",
+    github: "https://github.com/chiragksharma",
   },
 });
 
