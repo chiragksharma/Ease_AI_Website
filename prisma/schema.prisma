@@ -32,6 +32,7 @@ model User {
   emailVerified           Boolean?                 @default(false)
   picture                 String?
   githubId                Int?                     @unique
+  googleId                String?                  @unique
   sessions                Session[]
   projects                Project[]
   emailVerificationTokens EmailVerificationToken[]

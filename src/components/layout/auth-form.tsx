@@ -21,6 +21,8 @@ type FormData = z.infer<typeof userAuthSchema>;
 export default function AuthForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [isGithubLoading, setIsGithubLoading] = useState(false);
+  const [isGoogleLoading, setIsGoogleLoading] = useState(false);
+
 
   const {
     register,
@@ -62,7 +64,8 @@ export default function AuthForm() {
   }
   return (
     <div className={cn("mt-4 flex flex-col gap-4")}>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      
+      {/* <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col gap-2.5">
           <div>
             <Label className="sr-only" htmlFor="email">
@@ -92,10 +95,23 @@ export default function AuthForm() {
             Send magic link
           </button>
         </div>
-      </form>
+      </form> */}
       <div className="relative flex justify-center text-xs uppercase">
-        <span className="bg-background px-2 text-muted-foreground">/</span>
+        <span className="bg-background px-2 text-muted-foreground">Sign up and get 15 credits daily </span>
       </div>
+      {isGoogleLoading ? (
+        <Button className="w-full cursor-not-allowed" variant="outline">
+          <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
+        </Button>
+      ) : (
+        <Link
+          href="/api/auth/login/google"
+          className={cn(buttonVariants({ variant: "outline" }))}
+          onClick={() => setIsGoogleLoading(true)}
+        >
+          <Icons.google className="mr-3 h-4 w-4" /> Continue with Google
+        </Link>
+      )}
       {isGithubLoading ? (
         <Button className=" w-full cursor-not-allowed" variant="outline">
           <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
@@ -106,7 +122,7 @@ export default function AuthForm() {
           className={cn(buttonVariants({ variant: "outline" }))}
           onClick={() => setIsGithubLoading(true)}
         >
-          Continue with <Icons.gitHub className="ml-2 h-4 w-4" />
+         <Icons.gitHub className="mr-3 h-4 w-4" />  Continue with Github
         </Link>
       )}
     </div>

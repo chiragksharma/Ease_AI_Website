@@ -37,11 +37,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ],
     authors: [
       {
-        name: "moinulmoin",
+        name: "chiragsharma",
         url: "https://moinulmoin.com",
       },
     ],
-    creator: "Moinul Moin",
+    creator: "Chirag Sharma",
     openGraph: {
       type: "website",
       locale: locale,
@@ -63,7 +63,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: site.name,
       description: site.description,
       images: [siteOgImage],
-      creator: "@immoinulmoin",
+      creator: "@chiragksharma",
     },
     icons: {
       icon: "/ease_ai_logo.ico",
