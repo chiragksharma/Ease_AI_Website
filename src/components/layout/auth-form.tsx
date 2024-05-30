@@ -23,7 +23,6 @@ export default function AuthForm() {
   const [isGithubLoading, setIsGithubLoading] = useState(false);
   const [isGoogleLoading, setIsGoogleLoading] = useState(false);
 
-
   const {
     register,
     handleSubmit,
@@ -64,7 +63,6 @@ export default function AuthForm() {
   }
   return (
     <div className={cn("mt-4 flex flex-col gap-4")}>
-      
       {/* <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col gap-2.5">
           <div>
@@ -97,7 +95,9 @@ export default function AuthForm() {
         </div>
       </form> */}
       <div className="relative flex justify-center text-xs uppercase">
-        <span className="bg-background px-2 text-muted-foreground">Sign up and get 15 credits daily </span>
+        <span className="bg-background px-2 text-muted-foreground">
+          Sign up and get 15 credits daily{" "}
+        </span>
       </div>
       {isGoogleLoading ? (
         <Button className="w-full cursor-not-allowed" variant="outline">
@@ -122,7 +122,7 @@ export default function AuthForm() {
           className={cn(buttonVariants({ variant: "outline" }))}
           onClick={() => setIsGithubLoading(true)}
         >
-         <Icons.gitHub className="mr-3 h-4 w-4" />  Continue with Github
+          <Icons.gitHub className="mr-3 h-4 w-4" /> Continue with Github
         </Link>
       )}
     </div>

@@ -1,13 +1,12 @@
 import { PrismaAdapter } from "@lucia-auth/adapter-prisma";
-import { GitHub,Google } from "arctic";
+import { GitHub, Google } from "arctic";
 import { Lucia } from "lucia";
 import db from "./db";
 
 const adapter = new PrismaAdapter(db.session, db.user);
-const devMode = process.env.NODE_ENV !== 'production';
+const devMode = process.env.NODE_ENV !== "production";
 
-export const lucia = new Lucia(
-  adapter, {
+export const lucia = new Lucia(adapter, {
   sessionCookie: {
     expires: false,
     attributes: {
@@ -30,10 +29,10 @@ export const github = new GitHub(
 export const google = new Google(
   process.env.GOOGLE_CLIENT_ID!,
   process.env.GOOGLE_CLIENT_SECRET!,
-  process.env.GOOGLE_REDIRECT_URI!,
-)
+  process.env.GOOGLE_REDIRECT_URI!
+);
 declare module "lucia" {
-	interface Register {
-		Lucia: typeof lucia;
-	}
+  interface Register {
+    Lucia: typeof lucia;
+  }
 }
