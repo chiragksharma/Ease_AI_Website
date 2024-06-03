@@ -63,7 +63,10 @@ export default function Navbar({
               {headerText.dashboard}
             </Link>
           ) : (
-            <Link href="/login" className={buttonVariants()}>
+            <Link
+              href="/login?redirectTo=/dashboard"
+              className={buttonVariants()}
+            >
               {headerText.login}
             </Link>
           )}

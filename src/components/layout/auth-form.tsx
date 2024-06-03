@@ -2,9 +2,10 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { ParsedUrlQuery } from "querystring";
 import { Button, buttonVariants } from "~/components/ui/button";
 import { cn } from "~/lib/utils";
 import Icons from "../shared/icons";
@@ -18,10 +19,51 @@ const userAuthSchema = z.object({
 
 type FormData = z.infer<typeof userAuthSchema>;
 
+interface RouterQuery extends ParsedUrlQuery {
+  from?: string;
+  browser?: string;
+  redirectTo?: string;
+}
+
+const extractQueryParams = (): RouterQuery => {
+  const urlParams = new URLSearchParams(window.location.search);
+  return {
+    from: urlParams.get("from") || undefined,
+    browser: urlParams.get("browser") || undefined,
+    redirectTo: urlParams.get("redirectTo") || undefined,
+  };
+};
 export default function AuthForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [isGithubLoading, setIsGithubLoading] = useState(false);
   const [isGoogleLoading, setIsGoogleLoading] = useState(false);
+  const [googleLoginUrl, setGoogleLoginUrl] = useState(
+    "/api/auth/login/google"
+  );
+
+  useEffect(() => {
+    const { from, browser, redirectTo } = extractQueryParams();
+    let url = "/api/auth/login/google";
+
+    const params = new URLSearchParams();
+    if (from) params.append("from", from);
+    if (browser) params.append("browser", browser);
+    if (redirectTo) params.append("redirectTo", redirectTo);
+
+    if (params.toString()) {
+      url += `?${params.toString()}`;
+    }
+
+    setGoogleLoginUrl(url);
+  }, []);
+
+  const handleGoogleLoginClick = (
+    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+  ) => {
+    event.preventDefault();
+    setIsGoogleLoading(true);
+    window.location.href = googleLoginUrl;
+  };
 
   const {
     register,
@@ -104,10 +146,15 @@ export default function AuthForm() {
           <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
         </Button>
       ) : (
+        // <Link
+        //   href="/api/auth/login/google"
+        //   className={cn(buttonVariants({ variant: "outline" }))}
+        //   onClick={() => setIsGoogleLoading(true)}
+        // >
         <Link
-          href="/api/auth/login/google"
+          href={googleLoginUrl}
           className={cn(buttonVariants({ variant: "outline" }))}
-          onClick={() => setIsGoogleLoading(true)}
+          onClick={handleGoogleLoginClick}
         >
           <Icons.google className="mr-3 h-4 w-4" /> Continue with Google
         </Link>
